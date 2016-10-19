@@ -7,53 +7,68 @@ import javax.swing.*;
 import javax.swing.Timer;
 
 public class RotateCubeWithCamera extends JFrame {
+	
 	RotateCubeWithCamera() {
 		add(new PaintPanel());
 	}
 
 	class PaintPanel extends JPanel {
+		
 		Camera S = new Camera(100, 100, 400, 300);
 
 		// Simulating time
-		double t0; 													// Timestamp of simulationstart in sec
-		double t = 0; 												// Time in sec since simulation start
+		double t0; 							// Timestamp of simulationstart in sec
+		double t = 0; 						// Time in sec since simulation start
 
 		// Animation
-		int frameRate = 25; 										// No of frames/second
-		int frameDelay = 1000 / frameRate; 							// time between frames in milli sec
+		int frameRate = 25; 				// No of frames/second
+		int frameDelay = 1000 / frameRate; 	// time between frames in milli sec
 		Timer myTimer = new Timer(frameDelay, new TimerListener());
 
 		// Application
-		V3[] cube=new V3[8];
-		V3 c=new V3(0,0,0);
-		M3 I=new M3(1,0,0,
-                0,1,0,
-                0,0,1);
-    M3 Sz=new M3(0,-1, 0,
-                 1, 0, 0,
-                 0, 0, 0);
-   double phi=Math.PI/100;
-   M3 Rz=I.add(Sz.mul(Math.sin(phi))).add(Sz.mul(Sz).mul(1-Math.cos(phi)));
+		V3[] cube = new V3[8];
+		V3 c = new V3(0,0,0);
+		
+		M3 I = new M3(1,0,0,
+					  0,1,0,
+					  0,0,1);
+		
+		M3 Sz = new M3(0,-1, 0,
+                 	   1, 0, 0,
+                       0, 0, 0);
+		
+		// The angle to be tip the figure
+		double phi = Math.PI/100;
+		
+		// Same reference as in RotateCube
+		M3 Rz = I.add(Sz.mul(Math.sin(phi))).add(Sz.mul(Sz).mul(1 - Math.cos(phi)));
 
 
 		PaintPanel() {
-			cube[0]=new V3(1,4,1);
-			cube[1]=new V3(1,4,3);
-			cube[2]=new V3(1,6,1);
-			cube[3]=new V3(1,6,3);
-			cube[4]=new V3(3,4,1);
-			cube[5]=new V3(3,4,3);
-			cube[6]=new V3(3,6,1);
-			cube[7]=new V3(3,6,3);
-			for (int i=0; i<cube.length; i++){
-				c=c.add(cube[i]);
+			cube[0] = new V3(1,4,1);
+			cube[1] = new V3(1,4,3);
+			cube[2] = new V3(1,6,1);
+			cube[3] = new V3(1,6,3);
+			cube[4] = new V3(3,4,1);
+			cube[5] = new V3(3,4,3);
+			cube[6] = new V3(3,6,1);
+			cube[7] = new V3(3,6,3);
+			
+			for (int i = 0; i < cube.length; i++){
+				c = c.add(cube[i]);
 			}
-			c=c.mul(1.0/cube.length);
+			
+			// Center of cube
+			c = c.mul(1.0 / cube.length);
 			
 			//V3(I, J, K)
 			S.moveTo(new V3(10,5,2));
+			
+			// Set focus
 			S.focus(c);
-			S.z=6;
+			
+			// Set zoom
+			S.z = 6;
 			
 			// Start simulation
 			t0 = System.currentTimeMillis() / 1000.0;
@@ -66,11 +81,12 @@ public class RotateCubeWithCamera extends JFrame {
 			// Update time
 			t = System.currentTimeMillis() / 1000.0 - t0;
 
-			for (int i=0; i<cube.length; i++){
+			for (int i = 0; i < cube.length; i++){
 				cube[i]=cube[i].sub(c);
 				cube[i]=Rz.mul(cube[i]);
 				cube[i]=cube[i].add(c);
 			}
+			
 			S.drawLine(g, cube[0], cube[1]);
 			S.drawLine(g, cube[1], cube[3]);
 			S.drawLine(g, cube[3], cube[2]);

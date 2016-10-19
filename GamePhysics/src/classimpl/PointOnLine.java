@@ -15,19 +15,19 @@ public class PointOnLine extends JFrame {
 		S2 S2 = new S2(40, 40, 100, 500);
 
 		// Simulating time
-		double t0; 													// Timestamp of simulationstart in sec
-		double t = 0; 											// Time in sec since simulation start
+		double t0; 							// Timestamp of simulationstart in sec
+		double t = 0; 						// Time in sec since simulation start
 
 		// Animation
-		int frameRate = 25; 								// No of frames/second
+		int frameRate = 25; 				// No of frames/second
 		int frameDelay = 1000 / frameRate; 	// time between frames in milli sec
 		Timer myTimer = new Timer(frameDelay, new TimerListener());
 
-		V2 A = new V2(4, 2); 								// Point on the line
-		V2 B = new V2(16, 5); 							// Point on the line
-		V2 r = B.sub(A).unit(); 						// Unit length vector in direction of the line
-		V2 P; 															// Blue point moving along the line
-		double s = 2; 											// speed - units pr. sec
+		V2 A = new V2(4, 2); 				// Point on the line
+		V2 B = new V2(16, 5); 				// Point on the line
+		V2 r = B.sub(A).unit(); 			// Unit length vector in direction of the line
+		V2 P; 								// Blue point moving along the line
+		double s = 2; 						// speed - units pr. sec
 
 		PaintPanel() {
 			// Start simulation
@@ -52,7 +52,8 @@ public class PointOnLine extends JFrame {
 			S2.drawPoint(g, P, Color.BLUE, 10);
 
 			// Stop simulation
-			// if (P.x>=B.x) myTimer.stop();
+			if (P.x >= B.x) 
+				myTimer.stop();
 		}
 
 		class TimerListener implements ActionListener {
