@@ -16,11 +16,11 @@ public class RotateCubeWithCamera extends JFrame {
 
 		// Simulating time
 		double t0; 													// Timestamp of simulationstart in sec
-		double t = 0; 											// Time in sec since simulation start
+		double t = 0; 												// Time in sec since simulation start
 
 		// Animation
-		int frameRate = 25; 								// No of frames/second
-		int frameDelay = 1000 / frameRate; 	// time between frames in milli sec
+		int frameRate = 25; 										// No of frames/second
+		int frameDelay = 1000 / frameRate; 							// time between frames in milli sec
 		Timer myTimer = new Timer(frameDelay, new TimerListener());
 
 		// Application
@@ -49,7 +49,8 @@ public class RotateCubeWithCamera extends JFrame {
 				c=c.add(cube[i]);
 			}
 			c=c.mul(1.0/cube.length);
-
+			
+			//V3(I, J, K)
 			S.moveTo(new V3(10,5,2));
 			S.focus(c);
 			S.z=6;
