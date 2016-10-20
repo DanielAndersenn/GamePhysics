@@ -21,7 +21,7 @@ public class RotateCubeWithCamera extends JFrame {
 		double t = 0; 						// Time in sec since simulation start
 
 		// Animation
-		int frameRate = 25; 				// No of frames/second
+		int frameRate = 30; 				// No of frames/second
 		int frameDelay = 1000 / frameRate; 	// time between frames in milli sec
 		Timer myTimer = new Timer(frameDelay, new TimerListener());
 

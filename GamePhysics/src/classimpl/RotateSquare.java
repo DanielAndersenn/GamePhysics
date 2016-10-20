@@ -19,7 +19,7 @@ public class RotateSquare  extends JFrame {
 	
 	class DrawPanel extends JPanel {
 		
-		S2 S = new S2(50,50,200,400);
+		S2 S = new S2(50, 50, 200, 400);
     
 		// Original square
 		V2 A = new V2(2,2);
