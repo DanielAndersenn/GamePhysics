@@ -19,15 +19,15 @@ public class BrooklynBridge1 extends JFrame {
 		private double t = 0; 						// Time in sec since simulation start
 
 		// Animation
-		private int frameRate = 25; 				// No of frames/second
+		private int frameRate = 30; 				// No of frames/second
 		private int frameDelay = 1000 / frameRate; 	// time between frames in milli sec
 		Timer myTimer = new Timer(frameDelay, new TimerListener());
 
 		// Application
-		private final double g = 9.82;		// Tyngdekraft - Enhed: m/(s*s) - KONSTANT
-		private double x0 = 41.15;		// Startposition - Enhed: m
-		private double v0 = 0;			// Starthastighed - Enhed: m/s
-		private double a = -g;		  	// Acceleration - Enhed: m/(s*s)
+		private final double g = 9.82;				// Tyngdekraft - Enhed: m/(s*s) - KONSTANT
+		private double x0 = 41.15;					// Startposition - Enhed: m
+		private double v0 = 0;						// Starthastighed - Enhed: m/s
+		private double a = -g;		  				// Acceleration - Enhed: m/(s*s)
 		
 		PaintPanel() {
 			// Start simulation
@@ -54,9 +54,9 @@ public class BrooklynBridge1 extends JFrame {
 			t = System.currentTimeMillis() / 1000.0 - t0;
 
 			// Simulation
-			g.drawString("t = " + t, 10, 15); // Printer tid
-			g.drawString("x = " + x(t), 10, 30); // Printer position
-			g.drawString("v = " + v(t), 10, 45); // Printer hastighed
+			g.drawString("t (tid) = " + t, 10, 15); // Printer tid
+			g.drawString("x (position) = " + x(t), 10, 30); // Printer position
+			g.drawString("v (hastighed) = " + v(t), 10, 45); // Printer hastighed
 			s.drawPoint(g, new V2(0, x0), 10); // Tegner punktet til x0 - statisk 
 			s.drawPoint(g, new V2(0, x(t)), 10); // Tegner punktet til tiden x(t) - dynamisk
 			s.drawAxis(g); // Tegner akserne
