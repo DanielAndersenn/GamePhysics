@@ -2,11 +2,13 @@ package classimpl;
 
 import java.awt.Color;
 import java.awt.event.*;
+import java.text.DecimalFormat;
 import java.awt.Graphics;
 import javax.swing.*;
 import javax.swing.Timer;
 
 public class BrooklynBridge1 extends JFrame {
+	
 	BrooklynBridge1() {
 		add(new PaintPanel());
 	}
@@ -52,11 +54,15 @@ public class BrooklynBridge1 extends JFrame {
 
 			// Update time
 			t = System.currentTimeMillis() / 1000.0 - t0;
+			
+			// Antal decimaler vi ønsker at se
+			DecimalFormat df = new DecimalFormat();
+			df.setMaximumFractionDigits(2); // Vi ønsker at se 2 decimaler
 
 			// Simulation
-			g.drawString("t (tid) = " + t, 10, 15); // Printer tid
-			g.drawString("x (position) = " + x(t), 10, 30); // Printer position
-			g.drawString("v (hastighed) = " + v(t), 10, 45); // Printer hastighed
+			g.drawString("t (tid) = " + df.format(t), 10, 15); // Printer tid
+			g.drawString("x (position) = " + df.format(x(t)), 10, 30); // Printer position
+			g.drawString("v (hastighed) = " + df.format(v(t)), 10, 45); // Printer hastighed
 			s.drawPoint(g, new V2(0, x0), 10); // Tegner punktet til x0 - statisk 
 			s.drawPoint(g, new V2(0, x(t)), 10); // Tegner punktet til tiden x(t) - dynamisk
 			s.drawAxis(g); // Tegner akserne
