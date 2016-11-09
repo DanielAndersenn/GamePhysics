@@ -32,5 +32,9 @@ public class V2 {
   	V2 unit() {
   		return new V2(x, y).div(length());
   	}
+  	
+  	public String toString(){
+  		return "(" + x + ", " + y + ")";
+  	}
 
 }
