@@ -22,6 +22,7 @@ public class V3 {
 	}
 
 	public V3 add(V3 v) {
+		System.out.print(x + " + " + v.x + " , " + y + " + " + v.y + " = " );
 		return new V3(x + v.x, y + v.y, z + v.z);
 	}
 
