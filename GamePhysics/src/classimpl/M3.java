@@ -5,6 +5,7 @@ package classimpl;
  */
 
 public class M3 {
+	
 	double a11, a12, a13,
            a21, a22, a23,
            a31, a32, a33;
