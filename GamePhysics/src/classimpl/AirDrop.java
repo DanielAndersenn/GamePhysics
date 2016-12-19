@@ -40,7 +40,7 @@ public class AirDrop extends JFrame {
 		// Application	
 		double g = 9.82;								// Tyngdekraft - Enhed: m/(s*s) - KONSTANT
 		V2 r0 = new V2(0, 100);							// Startposition - Enhed: m
-		V2 v0 = new V2(200 * 1000.0 / (60*60), 0);		// 200 km/s omdannet til m/s
+		V2 v0 = new V2(200 * 1000.0 / (60*60), 0);		// 200 km/t omdannet til m/s
 		V2 a = new V2(0, -g);		  					// Konstant acceleration - Enhed: m/(s*s)
 		
 		ArrayList<V2> trajactory = new ArrayList<V2>();
