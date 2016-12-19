@@ -100,7 +100,9 @@ public class CheatSheet {
 		System.out.println("OP = "+ OP);
 		System.out.println("U = [Cos("+angle+") , Sin("+angle+")] = ("+Math.cos(radian)+" , "+Math.sin(radian)+")");
 		System.out.println("V = [-Sin("+angle+") , Cos("+angle+")] = ("+-Math.sin(radian)+" , "+Math.cos(radian)+")");
-		//System.out.println( "+Math.cos(radian)+"\n");
+		System.out.println();
+		System.out.println("P' = [" + Math.cos(radian) + "\t" + Math.sin(radian) + "\n"
+									+ -Math.sin(radian) + "\t" + Math.cos(radian) + "] * " + "OP");
 		
 		M2 Aminus = new M2(Math.cos(radian),Math.sin(radian),-Math.sin(radian),Math.cos(radian));
 		System.out.println(Aminus.mul(OP));
