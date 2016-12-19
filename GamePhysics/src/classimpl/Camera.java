@@ -42,7 +42,7 @@ public class Camera {
 		U = R.cross(D);
 	}
 	
-	//Slide 4 i slides om kameraet
+	// Slide 4 i slides om kameraet
 	V2 project(V3 P){
 		V3 EP = P.sub(E);
 		double d = D.dot(EP);

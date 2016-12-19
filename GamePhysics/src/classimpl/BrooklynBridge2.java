@@ -37,7 +37,7 @@ public class BrooklynBridge2 extends JFrame {
 		 * Drag coefficients: (Taget fra slides)
 		 * Frit fald: p = 0.15
 		 * "Overcoat": p = 0.5
-		 * Faldskærm: p = 1.5
+		 * Faldskaerm: p = 1.5
 		 * */
 		
 		
@@ -47,13 +47,13 @@ public class BrooklynBridge2 extends JFrame {
 			myTimer.start();
 		}
 		
-		// Metode der må beregne positionen til tiden t - kan ses på sidste slide (uge 11)
+		// Metode der maa beregne positionen til tiden t - kan ses paa sidste slide (uge 11)
 		double x(double t){
-			// return 0.5 * a * t * t + v0 * t +x0;
+			// return 0.5 * a * t * t + v0 * t + x0;
 			return ((v0 + vT) / p) * (1 - Math.exp(-p * t)) - vT * t + x0;
 		}
 		
-		// Metode der må beregne hastighed til tiden t - kan ses på slide 16 (uge 11)
+		// Metode der maa beregne hastighed til tiden t - kan ses paa slide 16 (uge 11)
 		double v(double t){
 			// return a * t + v0;
 			return (v0 + vT) * Math.exp(-p * t) - vT;
