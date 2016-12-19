@@ -17,7 +17,7 @@ public class V2 {
     
     // Substract 2D-vectors
     V2 sub(V2 v) {
-    	System.out.print(x + " - " + v.x + ", " + y + " - " + v.y + " = ");
+    	System.out.print("\n("+x + " - " + v.x + " \n " + y + " - " + v.y + ") \n= ");
     	return new V2(x - v.x, y - v.y);
     }
     
@@ -42,7 +42,8 @@ public class V2 {
   	}
   	
   	public String toString(){
-  		return "(" + x + ", " + y + ")";
+  		return "\n("+x+"\n"+y+")";
+  		//return "(" + x + ", " + y + ")";
   	}
   	
     // Vector rotation
