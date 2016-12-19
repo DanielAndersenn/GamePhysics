@@ -17,8 +17,8 @@ public class CheatSheet {
 		//rotate(new V2(4,3), 30, new V2(0,0));
 		//mirrorLine(3, new V2(5,2));
 	
-		focus(new V3(2,1,4),new V3(3,0,1));
-	
+		//focus(new V3(2,1,4),new V3(3,0,1));
+		basisChange(45,new V2(1,5),new V2(3,1));
 	}
 
 	public static void forskyd(V2 punkt, V2 vektor) {
@@ -92,6 +92,18 @@ public class CheatSheet {
 	
 	public static void constAccSPLAT(){
 		
+	}
+	
+	public static void basisChange(double angle, V2 P, V2 O){
+		double radian = (Math.PI/180)*angle;
+		V2 OP = P.sub(O);
+		System.out.println("OP = "+ OP);
+		System.out.println("U = [Cos("+angle+") , Sin("+angle+")] = ("+Math.cos(radian)+" , "+Math.sin(radian)+")");
+		System.out.println("V = [-Sin("+angle+") , Cos("+angle+")] = ("+-Math.sin(radian)+" , "+Math.cos(radian)+")");
+		//System.out.println( "+Math.cos(radian)+"\n");
+		
+		M2 Aminus = new M2(Math.cos(radian),Math.sin(radian),-Math.sin(radian),Math.cos(radian));
+		System.out.println(Aminus.mul(OP));
 	}
 	
 }
