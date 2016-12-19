@@ -26,6 +26,10 @@ public class Camera {
 		S = new S2(sx, sy, ox, oy);
 	}
 	
+	Camera(){
+		
+	}
+	
 	// Flyt kameraet
 	void moveTo(V3 p){
 		E = new V3(p.x, p.y, p.z);
