@@ -32,7 +32,7 @@ public class CheatSheet {
 		
 		
 		//standardAirDrop(new V2(0,300),9.82,new V2(kmhTOms(500),0));
-		projectileDistance(30,200);
+		//projectileDistance(30,200);
 		//projectileAngle(20,65);
 		
 		//calcAcc(100,0,11.8,0);
@@ -177,8 +177,9 @@ public class CheatSheet {
 		System.out.println("Terminal hastighed: = "+9.82/dragCoefficient);	
 	}
 	
+	// OBS v0 er m/s
 	public static double velocityWithResistance(double t, double v0, double drag) {
-		// t er tiden t
+		// t er tiden t sekunder
 		// v0 er fart i m/s
 		// drag er drag - typisk givet af ham
 		
@@ -189,12 +190,18 @@ public class CheatSheet {
 				+ " * e^(-" + drag + " * " + t + ")" + "-" + "9.82/" + drag + "\n");
 		
 		double result = (v0 + 9/82/drag) + Math.exp(-drag * t)-(9.82/drag);
-		System.out.println("V("+t+") = " + result);
+		System.out.println("V("+t+") = " + result + " m/s");
 		return result;
 		
 	}
 	
+	// OBS v0 er m/s
 	public static double positionWithResistance(double t, double v0, double x0, double drag) {
+		// t er tiden t i sekunder
+		// v0 er starthastigheden i m/s
+		// x0 er startpositionen i m
+		// drag er drag
+		
 		System.out.println("## positionWithResistance ##");
 		
 		System.out.println("x(t)=x0 - vt * t + (v0 + vt/p) * (1 - e^-p*t)\n");
@@ -207,7 +214,7 @@ public class CheatSheet {
 		System.out.println("## positionWithResistance fortsat ##\n");
 		System.out.println("x("+t+") = " + x0 + " - " + vt + " * " + t + " + " + "(" + v0 + " + " + vt + "/"
 						  + drag + ")" + " * " + "(1 - e^-" + drag + " * " + t + ")");
-		System.out.println("x("+t+") = " + result);
+		System.out.println("x("+t+") = " + result + " m");
 		
 		return result;
 	}
