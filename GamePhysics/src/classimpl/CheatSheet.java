@@ -110,7 +110,7 @@ public class CheatSheet {
 		System.out.println("## VelocityAtT ##");
 		//v0 = Start hastighed - m/s
 		//acc = Acceleration - m/s^2
-		//t = Den ønskede tid - s
+		//t = Den oenskede tid - s
 		double result = v0+acc*t;
 		System.out.println("v(t) ="
 			+ "\nv0 + acc * t = "
@@ -134,7 +134,7 @@ public class CheatSheet {
 		
 	}
 	
-		//Hvornår rammer man 0
+		//Hvornaar rammer man 0
 		//DONE
 	public static void SPLAT(double x0, double acc){
 		System.out.println("## SPLAT ##");
@@ -148,14 +148,14 @@ public class CheatSheet {
 		
 	}
 	
-		//Beregner distance ved en given opnået hastighed
+		//Beregner distance ved en given opnÃ¥eet hastighed
 		//DONE
 	public static void DistanceDrivenAtVelocity(double v0, double x0, double acc, double topSpeed){
 		System.out.println("## DistanceDrivenAtVelocity ##");
 		//double v0 = start hastighed - km/t
 		//double x0 = start position - m
 		//double acc = Acceleration - m/s^2
-		//double topSpeed = Ønskede opnået hastighed
+		//double topSpeed = oenskede opnaaet hastighed
 		double tempTS = kmhTOms(topSpeed);
 		double timeNeeded = tempTS/acc;
 		System.out.println("topSpeed omregnet til m/s = tempTS = "+tempTS+" m/s");
@@ -172,7 +172,7 @@ public class CheatSheet {
 	//Basis change methods
 	
 		//Input Y = a*X+b
-		//Skifter base baseret på vinkel
+		//Skifter base baseret paa vinkel
 		//Done
 	public static void basisChangeAngle(double angle, V2 P, V2 O){
 		System.out.println("## basisChangeAngle ##");
@@ -195,7 +195,7 @@ public class CheatSheet {
 	}
 	
 		//Input Y = a*X+b
-		//Skifter base baseret på linje
+		//Skifter base baseret paa linje
 		//Done
 	public static void basisChangeLine(double a, double b, V2 P, V2 O){
 		System.out.println("## basisChangeLine ##");
@@ -211,9 +211,6 @@ public class CheatSheet {
 		
 		double cosAngle = x/h;//*(180/Math.PI);
 		double sinAngle = y/h;//*(180/Math.PI);
-
-		
-		//"\U+0395"
 		
 		System.out.println("\nU = "
 				+ "\n[cos(epsilon) = x/h \n sin(epsilon) = y/h]\n="
@@ -273,7 +270,7 @@ public class CheatSheet {
 		System.out.println("Distance = "+result);
 	}
 	
-		//Udregner hvad udgangsvinklen er baseret på distancen
+		//Udregner hvad udgangsvinklen er baseret paa distancen
 	public static void projectileAngle(double distance ,double velocity){
 		double speed = kmhTOms(velocity);
 		
@@ -310,7 +307,7 @@ public class CheatSheet {
 		return ms*(60*60)/1000;
 	}
 	
-		//udregner Acc baseret på final og initial værdier
+		//udregner Acc baseret paa final og initial vaerdier
 		//DONE
 	public static double calcAcc(double vf, double vi, double tf, double ti){
 		System.out.println("## calcAcc ##");
