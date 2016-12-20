@@ -56,14 +56,18 @@ public class M3 {
     }
     
     public M3 mul(M3 m) { // matrix multiplication
-      return new M3(a11 * m.a11 + a12 * m.a21 + a13 * m.a31, a11 * m.a12 + a12 * m.a22 + a13 * m.a32, a11 * m.a13 + a12 * m.a23 + a13 * m.a33, 
+    	
+    	System.out.println(this.toString() + "\n*\n" 
+    					   + m.toString() + "\n =");
+    	
+    	return new M3(a11 * m.a11 + a12 * m.a21 + a13 * m.a31, a11 * m.a12 + a12 * m.a22 + a13 * m.a32, a11 * m.a13 + a12 * m.a23 + a13 * m.a33, 
       				a21 * m.a11 + a22 * m.a21 + a23 * m.a31, a21 * m.a12 + a22 * m.a22 + a23 * m.a32, a21 * m.a13 + a22 * m.a23 + a23 * m.a33,
       				a31 * m.a11 + a32 * m.a21 + a33 * m.a31, a31 * m.a12 + a32 * m.a22 + a33 * m.a32, a31 * m.a13 + a32 * m.a23 + a33 * m.a33);
     }
     
     public String toString() {
-        return "["+a11+" ,"+a12+" ,"+a13+"; "+
-        	   a21+" ,"+a22+" ,"+a23+"; "+
+        return "["+a11+" ,"+a12+" ,"+a13+"\n "+
+        	   a21+" ,"+a22+" ,"+a23+"\n "+
         	   a31+" ,"+a32+" ,"+a33+"]";
     }
 

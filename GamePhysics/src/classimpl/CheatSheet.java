@@ -12,9 +12,9 @@ public class CheatSheet {
 	public static void main(String[] args) {
 		
 		//forskyd(new V2(4,3), new V2(1,-2));
-		// forskyd(new V3(4,3,2), new V3(1,-2,0));
+		//forskyd(new V3(4,3,2), new V3(1,-2,0));
 		
-		matriceMult(new M2(1, 1, 1, 1), new V2(3,3));
+		//matriceMult(new M2(1, 1, 1, 1), new V2(3,3));
 		
 		//rotate(new V2(5,2), 45, new V2(1,-1));
 		//mirrorX(new V2(4,3));
@@ -36,8 +36,10 @@ public class CheatSheet {
 		//projectileAngle(20,65);
 		
 		//calcAcc(100,0,11.8,0);
-		//System.out.println(kmhTOms(89));
+		//System.out.println(kmhTOms(200));
 		//System.out.println(msTOkmh(kmhTOms(89)));
+		
+		//matriceMult(new M3(1,1,1,1,1,1,1,1,1), new V3(2,2,2));
 	}
 	
 	// Method to move (forskyde) a 2d point with a 2d vector
@@ -123,13 +125,13 @@ public class CheatSheet {
 	// Method to mult 3d matrice with 3d matrice
 	public static void matriceMult(M3 matrice1, M3 matrice2) {
 		System.out.println("## matriceMult M3*M3 ##");
-		matrice1.mul(matrice2);
+		System.out.print(matrice1.mul(matrice2));
 	}
 	
 	// Method to mult 3d matrice with 3d vector
 	public static void matriceMult(M3 matrice1, V3 vector) {
 		System.out.println("## matriceMult M3*M3 ##");
-		matrice1.mul(vector);
+		System.out.println(matrice1.mul(vector));
 	}
 	
 	// Method to mult 3d matrice with 3d matrice
