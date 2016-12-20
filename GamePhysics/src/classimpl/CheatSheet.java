@@ -40,6 +40,8 @@ public class CheatSheet {
 		//System.out.println(msTOkmh(kmhTOms(89)));
 		
 		//matriceMult(new M3(1,1,1,1,1,1,1,1,1), new V3(2,2,2));
+		
+		 positionWithResistance(40, 20, 0,  0.1);
 	}
 	
 	// Method to move (forskyde) a 2d point with a 2d vector
@@ -170,8 +172,44 @@ public class CheatSheet {
 	}
 	
 	public static void terminalHastighed(double dragCoefficient){
+
 		System.out.println("## terminalHastighed ##");
 		System.out.println("Terminal hastighed: = "+9.82/dragCoefficient);	
+	}
+	
+	public static double velocityWithResistance(double t, double v0, double drag) {
+		// t er tiden t
+		// v0 er fart i m/s
+		// drag er drag - typisk givet af ham
+		
+		System.out.println("## velocityWithResistance ##");
+		System.out.println("V(t)=(v0 + g/p) * e^(-p * t) - g/p\n");
+		
+		System.out.println("V("+t+") = (" + v0 + " + 9.82/" + drag + ")"
+				+ " * e^(-" + drag + " * " + t + ")" + "-" + "9.82/" + drag + "\n");
+		
+		double result = (v0 + 9/82/drag) + Math.exp(-drag * t)-(9.82/drag);
+		System.out.println("V("+t+") = " + result);
+		return result;
+		
+	}
+	
+	public static double positionWithResistance(double t, double v0, double x0, double drag) {
+		System.out.println("## positionWithResistance ##");
+		
+		System.out.println("x(t)=x0 - vt * t + (v0 + vt/p) * (1 - e^-p*t)\n");
+		System.out.println("Skal bruge vt så udregner den: \n");
+		
+		double vt = velocityWithResistance(t, v0, drag);
+		
+		double result = x0 - vt * t + ((v0 + vt)/drag) * (1 - Math.exp(-drag * t));
+		
+		System.out.println("## positionWithResistance fortsat ##\n");
+		System.out.println("x("+t+") = " + x0 + " - " + vt + " * " + t + " + " + "(" + v0 + " + " + vt + "/"
+						  + drag + ")" + " * " + "(1 - e^-" + drag + " * " + t + ")");
+		System.out.println("x("+t+") = " + result);
+		
+		return result;
 	}
 	
 	// Method to calculate 
