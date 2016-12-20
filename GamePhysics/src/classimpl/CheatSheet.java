@@ -41,7 +41,7 @@ public class CheatSheet {
 		
 		//matriceMult(new M3(1,1,1,1,1,1,1,1,1), new V3(2,2,2));
 		
-		 positionWithResistance(40, 20, 0,  0.1);
+		 velocityWithResistance(40, 20, 0.1);
 	}
 	
 	// Method to move (forskyde) a 2d point with a 2d vector
@@ -189,7 +189,9 @@ public class CheatSheet {
 		System.out.println("V("+t+") = (" + v0 + " + 9.82/" + drag + ")"
 				+ " * e^(-" + drag + " * " + t + ")" + "-" + "9.82/" + drag + "\n");
 		
-		double result = (v0 + 9/82/drag) + Math.exp(-drag * t)-(9.82/drag);
+		double vT = 9.82/drag;
+		
+		double result = (v0 + vT) * Math.exp(-drag * t) - vT;
 		System.out.println("V("+t+") = " + result + " m/s");
 		return result;
 		
@@ -205,13 +207,13 @@ public class CheatSheet {
 		System.out.println("## positionWithResistance ##");
 		
 		System.out.println("x(t)=x0 - vt * t + (v0 + vt/p) * (1 - e^-p*t)\n");
-		System.out.println("Skal bruge vt så udregner den: \n");
+		//System.out.println("Skal bruge vt så udregner den: \n");
 		
-		double vt = velocityWithResistance(t, v0, drag);
+		double vt = 9.82/drag;
 		
-		double result = x0 - vt * t + ((v0 + vt)/drag) * (1 - Math.exp(-drag * t));
+		double result = ((v0 + vt) / drag) * (1 - Math.exp(-drag * t)) - vt * t + x0;
 		
-		System.out.println("## positionWithResistance fortsat ##\n");
+		//System.out.println("## positionWithResistance fortsat ##\n");
 		System.out.println("x("+t+") = " + x0 + " - " + vt + " * " + t + " + " + "(" + v0 + " + " + vt + "/"
 						  + drag + ")" + " * " + "(1 - e^-" + drag + " * " + t + ")");
 		System.out.println("x("+t+") = " + result + " m");

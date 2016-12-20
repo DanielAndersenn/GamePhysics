@@ -26,11 +26,11 @@ public class BrooklynBridge2 extends JFrame {
 
 		// Application
 		double g = 9.82;					// Tyngdekraft - Enhed: m/(s*s) - KONSTANT
-		double x0 = 41.15;					// Startposition - Enhed: m
-		double v0 = 0;						// Starthastighed - Enhed: m/s
+		double x0 = 0;					// Startposition - Enhed: m
+		double v0 = 20;						// Starthastighed - Enhed: m/s
 		double a = -g;		  				// Acceleration - Enhed: m/(s*s)
 
-		double p = 1.5;						// Drag (air resistance)
+		double p = 0.1;						// Drag (air resistance)
 		double vT = g / p;					// Terminal speed (terminal velocity)
 		
 		/* 
@@ -75,7 +75,7 @@ public class BrooklynBridge2 extends JFrame {
 			s.drawAxis(g);
 
 			// Stop simulation
-			if (x(t)<0) myTimer.stop();
+			if (x(t)<-2767) myTimer.stop();
 		}
 
 		class TimerListener implements ActionListener {
