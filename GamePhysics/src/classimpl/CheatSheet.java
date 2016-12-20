@@ -14,6 +14,8 @@ public class CheatSheet {
 		//forskyd(new V2(4,3), new V2(1,-2));
 		// forskyd(new V3(4,3,2), new V3(1,-2,0));
 		
+		matriceMult(new M2(1, 1, 1, 1), new V2(3,3));
+		
 		//rotate(new V2(5,2), 45, new V2(1,-1));
 		//mirrorX(new V2(4,3));
 		//mirrorY(new V2(4,3));
@@ -96,7 +98,13 @@ public class CheatSheet {
 		System.out.println(punkt.mirrorLine(a));
 	}
 	
-	// Method to mult 2 matrices
+	// Method to scale 2d vector
+	public static void vectorScale(V2 vector, double scale) {
+		
+		vector.mul(scale);
+	}
+	
+	// Method to mult 2 2d matrices
 	public static void matriceMult(M2 matrice1, M2 matrice2) {
 		// matrice 1 is an matrice (M2)
 		// matrice 2 is an matrice (M2)
@@ -104,12 +112,48 @@ public class CheatSheet {
 		matrice1.mul(matrice2);
 	}
 	
-	// Method to mult matrice with vector
+	// Method to mult 2d matrice with 2d vector
 	public static void matriceMult(M2 matrice, V2 vector) {
 		// matrice is a matrice (M2)
 		// vector is a vector (V2)
 		System.out.println("## matriceMult M2*V2 ##");
-		matrice.mul(vector);
+		System.out.println(matrice.mul(vector));
+	}
+	
+	// Method to mult 3d matrice with 3d matrice
+	public static void matriceMult(M3 matrice1, M3 matrice2) {
+		System.out.println("## matriceMult M3*M3 ##");
+		matrice1.mul(matrice2);
+	}
+	
+	// Method to mult 3d matrice with 3d vector
+	public static void matriceMult(M3 matrice1, V3 vector) {
+		System.out.println("## matriceMult M3*M3 ##");
+		matrice1.mul(vector);
+	}
+	
+	// Method to mult 3d matrice with 3d matrice
+	public static void matriceScale(M3 matrice, double scale) {
+		System.out.println("## matriceMult M3*M3 ##");
+		matrice.mul(scale);
+	}
+	
+	// Method to calculate length of vector
+	public static void vectorLength(V3 vector) {
+		
+		vector.length();
+	}
+	
+	// Method to calculate cross product of vectors
+	public static void vectorCross(V3 vector1, V3 vector2) {
+		
+		vector1.cross(vector2);
+	}
+	
+	// Method to calculate dot product "prikproduktet" of 2 vectors
+	public static void vectorPrik(V3 vector1, V3 vector2) {
+		
+		vector1.dot(vector2);
 	}
 	
 	// Method to calculate D, R and U vectors for virtual camera
