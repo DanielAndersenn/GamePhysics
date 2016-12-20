@@ -32,7 +32,7 @@ public class CheatSheet {
 		
 		
 		//standardAirDrop(new V2(0,300),9.82,new V2(kmhTOms(500),0));
-		//projectileDistance(45,65);
+		projectileDistance(30,200);
 		//projectileAngle(20,65);
 		
 		//calcAcc(100,0,11.8,0);
@@ -168,7 +168,7 @@ public class CheatSheet {
 		Camera cam = new Camera();
 		cam.moveTo(E);
 		cam.focus(P);
-		System.out.println("Values for Cam: D = "+cam.D+"\nR = "+cam.R+"\nU = "+cam.U);
+		System.out.println("Values for Cam: \nD = "+cam.D+"\nR = "+cam.R+"\nU = "+cam.U);
 	}
 	
 	public static void terminalHastighed(double dragCoefficient){
@@ -268,7 +268,7 @@ public class CheatSheet {
 		
 	}
 	
-		//Beregner distance ved en given opnåeet hastighed
+		//Beregner distance ved en given opnaaet hastighed
 		//DONE
 	public static void DistanceDrivenAtVelocity(double v0, double x0, double acc, double topSpeed){
 		System.out.println("## DistanceDrivenAtVelocity ##");
@@ -388,6 +388,7 @@ public class CheatSheet {
 		System.out.println(V.x + " * " + "(2 * "+V.y +" ) / 9.82 = ");
 		double result = V.x * ((2 * V.y)/9.82);
 		System.out.println("Distance = "+result);
+		projectileMax(V, speed);
 	}
 	
 		//Udregner hvad udgangsvinklen er baseret paa distancen
@@ -405,7 +406,21 @@ public class CheatSheet {
 		System.out.println("2*epsilon = "+radianerResult);
 		System.out.println("epsilon = "+radianerResult/2);
 	}
-	
+		
+		//OBS OBS OBS
+		//PSA: Speed = m/s
+	public static void projectileMax(V2 V, double speed){
+		System.out.println("## projectileMax ##");
+		//V2 V Er den vektor med vinklerne.
+		//speed ANGIVET I M/S
+		
+		System.out.println("h = \n-0.5 * g *(V0y/g)^2 + V0y * (V0y/g) ="
+				+ "\n-0.5 * 9.82 * ("+V.y+"/"+9.82+")^2 + "+ V.y +" * ("+V.y+"/ 9.82) =");
+		
+		double result = -0.5*9.82*Math.pow((V.y/9.82), 2)+V.y*(V.y/9.82);
+		
+		System.out.println(result+" m");
+	}
 	//****************************************************
 	
 	
