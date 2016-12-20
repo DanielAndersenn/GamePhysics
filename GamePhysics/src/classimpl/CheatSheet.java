@@ -11,10 +11,12 @@ public class CheatSheet {
 	 */
 	public static void main(String[] args) {
 		
-		// forskyd(new V2(4,3), new V2(1,-2));
+		//forskyd(new V2(4,3), new V2(1,-2));
 		// forskyd(new V3(4,3,2), new V3(1,-2,0));
 		
-		//rotate(new V2(4,3), 30, new V2(0,0));
+		//rotate(new V2(5,2), 45, new V2(1,-1));
+		//mirrorX(new V2(4,3));
+		//mirrorY(new V2(4,3));
 		//mirrorLine(3, new V2(5,2));
 	
 		//focus(new V3(2,1,4),new V3(3,0,1));
@@ -23,64 +25,97 @@ public class CheatSheet {
 	
 		//VelocityAtT(0,9.82,2.43);
 		//PositionAtT(0,0,2.35,11.8);
-		//SPLAT(50,2.35);
+		//SPLAT(50,9.82);
 		//DistanceDrivenAtVelocity(0,0,2.35,190);
 		
 		
 		//standardAirDrop(new V2(0,300),9.82,new V2(kmhTOms(500),0));
 		//projectileDistance(45,65);
-		projectileAngle(20,65);
+		//projectileAngle(20,65);
 		
 		//calcAcc(100,0,11.8,0);
 		//System.out.println(kmhTOms(89));
 		//System.out.println(msTOkmh(kmhTOms(89)));
 	}
-
+	
+	// Method to move (forskyde) a 2d point with a 2d vector
 	public static void forskyd(V2 punkt, V2 vektor) {
+		// punkt is the point to be moved
+		// vektor is the vector with which the point is moved
 		System.out.println("## forskyd V2, V2 ##");
 		System.out.println(punkt.add(vektor));
 	}
 	
+	// Method to move (forskyde) a 3d point with a 3d vector
 	public static void forskyd(V3 punkt, V3 vektor) {
+		// punkt is the point to be moved
+		// vektor is the vector with which the point is moved
 		System.out.println("## forskyd V3, V3 ##");
 		System.out.println(punkt.add(vektor));
 	}
 	
+	// Method to rotate point with a given angle
 	public static void rotate(V2 punkt, double vinkel, V2 centrum) {
-		System.out.println("## rotate ##");
-		V2 temp = punkt.sub(centrum);
+		// punkt is the point to be rotated
+		// vinkel is angle that the point should be rotated
+		// centrum is the point we rotates around
 		
-		System.out.println(temp);
-		System.out.println(temp.rotatematrix(vinkel, centrum));
+		// NOTE : If no centrum is announced enter V2(0,0)
+		
+		// NOTE : Hvis der står "mod uret" er inputsvinklen positiv
+		// NOTE : Hvis der står "med uren" er inputsvinklen negativ
+		
+		System.out.println("## rotate ##");
+		
+		System.out.print("OP = ");
+		V2 OP = punkt.sub(centrum); System.out.println(OP + "\n");
+		
+		System.out.println("\n" + OP.rotatematrix(vinkel, centrum));
 	}
 	
+	// Method to mirror point in x axis
 	public static void mirrorX(V2 v2) {
+		// v2 is the point (V2) to be reflected in the x axis
 		System.out.println("## mirrorX ##");
 		System.out.println(v2.mirrorX());
 	}
 	
+	// Method to mirror point in y axis
 	public static void mirrorY(V2 v2) {
+		// v2 is the point (V2) to be reflected in the y axis
 		System.out.println("## mirrorY ##");
 		System.out.println(v2.mirrorY());
 	}
 	
+	// Method to mirror point in a given line
 	//y = a*x + b
 	public static void mirrorLine(double a, V2 punkt) {
+		// a is the coefficient from y = a * x + b
+		// punkt is the point to be reflected
 		System.out.println("## mirrorLine ##");
 		System.out.println(punkt.mirrorLine(a));
 	}
 	
+	// Method to mult 2 matrices
 	public static void matriceMult(M2 matrice1, M2 matrice2) {
+		// matrice 1 is an matrice (M2)
+		// matrice 2 is an matrice (M2)
 		System.out.println("## matriceMult M2*M2 ##");
 		matrice1.mul(matrice2);
 	}
 	
+	// Method to mult matrice with vector
 	public static void matriceMult(M2 matrice, V2 vector) {
+		// matrice is a matrice (M2)
+		// vector is a vector (V2)
 		System.out.println("## matriceMult M2*V2 ##");
 		matrice.mul(vector);
 	}
 	
+	// Method to calculate D, R and U vectors for virtual camera
 	public static void focus(V3 E, V3 P){
+		// E is the cameras origo (V2)
+		// P is the cameras focus point (V2)
 		System.out.println("## focus ##");
 		Camera cam = new Camera();
 		cam.moveTo(E);
@@ -93,6 +128,7 @@ public class CheatSheet {
 		System.out.println("Terminal hastighed: = "+9.82/dragCoefficient);	
 	}
 	
+	// Method to calculate 
 	public static void coordinatesInCameraPerspective(V3 Q, V3 E,V3 O){
 		System.out.println("## coordinatesInCameraPerspective ##");
 		V3 OQ = Q.sub(O);

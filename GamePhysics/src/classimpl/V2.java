@@ -22,7 +22,7 @@ public class V2 {
     }
     
     // Mult 2D-vectors
-    V2 mul(double d) {
+    V2 mul(double d) {	
       return new V2(x * d, y * d);
     }
     
@@ -53,8 +53,17 @@ public class V2 {
 		
     	M2 A = new M2(Math.cos(radian), -Math.sin(radian), Math.sin(radian), Math.cos(radian));
     	
+    	System.out.println("P' = \n"
+    			         + "[cos("+angle+") \t -sin("+angle+")\n"
+    			         + "sin("+angle+") \t  cos("+angle+")]\n"
+    			         + "*\n"
+    			         + "OP\n"
+    			         + "+\n"
+    			         + "O'\n"
+    			         + "=");
+    	
     	System.out.print(A.a + " * " + this.x + "\t" + A.b + " * " + this.y + "\n" +
-    					 A.c + " * " + this.x + "\t" + A.d + " * " + this.y + " = ");
+    					 A.c + " * " + this.x + "\t" + A.d + " * " + this.y + " =\n \n");
     	
     	/* System.out.print(A.a * this.x + "\t" + A.b * this.y + "\n" +
     					 A.c * this.x + "\t" + A.d * this.y + " = "); */
@@ -68,8 +77,14 @@ public class V2 {
     	
     	M2 A = new M2(1, 0, 0, -1);
     	
+    	System.out.println("P' = \n"
+    					  +"[1 \t 0\n"
+    					  + "0 \t -1]\n"
+    					  + "* \n"
+    					  + "P = \n");
+    	
     	System.out.print(A.a + " * " + this.x + "\t" + A.b + " * " + this.y + "\n" +
-				 		 A.c + " * " + this.x + "\t" + A.d + " * " + this.y + " = ");
+				 		 A.c + " * " + this.x + "\t" + A.d + " * " + this.y + " = \n");
     	
     	return A.mul(this);
     }
@@ -78,8 +93,14 @@ public class V2 {
     	
     	M2 A = new M2(-1, 0, 0, 1);
     	
+    	System.out.println("P' = \n"
+				  		  +"[-1 \t 0\n"
+				  		  + "0 \t 1]\n"
+				  		  + "* \n"
+				  		  + "P = \n");
+    		
     	System.out.print(A.a + " * " + this.x + "\t" + A.b + " * " + this.y + "\n" +
-				 		 A.c + " * " + this.x + "\t" + A.d + " * " + this.y + " = ");
+				 		 A.c + " * " + this.x + "\t" + A.d + " * " + this.y + " = \n");
     	
     	return A.mul(this);
     }
